@@ -1,8 +1,23 @@
 from ib.ext.Contract import Contract
 from ib.opt import ibConnection, message
 from time import sleep
+import requests
 
 import pprint
+
+
+
+
+
+
+#globals
+contract_count = 0
+countract_limit = 10
+
+
+
+
+
 
 # print all messages from TWS
 def watcher(msg):
@@ -40,13 +55,25 @@ def makeStkContract(contractTuple):
   #  self.reqContractDetails(211, ContractSamples.Bond())
 
 
+
+
 def contractDetails(contract):
   #  print("contract details received" + str(contract) )
     #print(str(contract.MarketName))
     #print(dir(contract))
     #print(contract.values)
     #var = contract.values()
+
+    global contract_count += 1
+    if contract_count < contract_
     print(str(contract.contractDetails.m_summary.m_strike))
+
+
+    contract_info = {'contract': contract.contractDetails.m_summary.m_strike,
+            'price' : ##some price goes here.....
+
+            }
+    requests.post("http://localhost/contract", data=contract_info)
    # pp = pprint.PrettyPrinter(width=41)
     #pp.pprint(contract)
    # print(contract.m_summary)
